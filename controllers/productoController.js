@@ -46,4 +46,7 @@ module.exports = {
       res.render("error", error);
     }
   },
+  todos: function (req, res) {
+    res.render("productos", { productos });
+  },
 };

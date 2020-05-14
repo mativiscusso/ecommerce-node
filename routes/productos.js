@@ -4,5 +4,7 @@ const productoControllers = require("../controllers/productoController");
 
 /* GET home page. */
 router.get("/:id/:categoria", productoControllers.detalleProducto);
+/* GET Productos. */
+router.get("/", productoControllers.todos);
 
 module.exports = router;
