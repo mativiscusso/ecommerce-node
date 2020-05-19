@@ -1,8 +1,10 @@
 const fs = require("fs");
+const path = require('path')
+let archivoJson = path.join(__dirname, )
 
 //* Traigo los productos del JSON
 let productos = JSON.parse(
-  fs.readFileSync("./data/productsDataBase.json", "utf-8")
+  fs.readFileSync("./src/data/productsDataBase.json", "utf-8")
 );
 
 // const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -17,13 +19,10 @@ let productosVisitados = productos.filter(
 );
 
 module.exports = {
-  index: function (req, res, next) {
-    res.render("index", {
-      productosEnOferta,
-      productosVisitados,
-    });
+  index: function (req, res) {
+    res.render("productos", { productos });
   },
-  detalleProducto: function (req, res) {
+  show: function (req, res) {
     let categoria = req.params.categoria;
     let id = req.params.id;
     let producto = null;
@@ -46,7 +45,9 @@ module.exports = {
       res.render("error", error);
     }
   },
-  todos: function (req, res) {
-    res.render("productos", { productos });
-  },
+  create : (req,res) => {},
+  store : (req,res) => {},
+  edit : (req,res) => {},
+  update : (req,res) => {},
+  destroy : (req,res) => {},
 };
