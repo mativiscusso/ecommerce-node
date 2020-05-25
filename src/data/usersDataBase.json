@@ -1,0 +1,17 @@
+[
+ {
+  "id": 1,
+  "user": "administrador",
+  "pass": "123456",
+  "avatar": "img_prueba.jpg"
+ },
+ {
+  "id": 4489,
+  "name": "Matias",
+  "last_name": "Viscusso",
+  "email": "mativiscusso@gmail.com",
+  "user": "mativiscusso",
+  "pass": "$2b$10$Tx7tIrWxEL5DxtNvy51duu2t.39uhxGuBhE5T.UN/fZ7qvESFtrRu",
+  "re_pass": "septiembre88"
+ }
+]

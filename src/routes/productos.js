@@ -1,21 +1,21 @@
 var express = require("express");
 var router = express.Router();
-const productoControllers = require("../controllers/productoController");
+const productosControllers = require("../controllers/productosController");
 
 // Listar todos los productos
-router.get("/", productoControllers.index);
+router.get("/", productosControllers.index);
 // Detalle producto 
-router.get("/:id/:categoria", productoControllers.show);
+router.get("/:id", productosControllers.show);
 // Vista formulario para crear producto 
-router.get('/crear', productoControllers.create)
+router.get('/create', productosControllers.create)
 // Procesar formulario para crear producto 
-router.post('/', productoControllers.create)
+router.post('/', productosControllers.store)
 // Vista formulario para editar producto 
-router.post('/:id/:categoria/editar', productoControllers.edit)
+router.get('/:id/editar', productosControllers.edit)
 // Procesar formulario para editar producto 
-router.put('/:id/:categoria/', productoControllers.update)
+router.put('/:id', productosControllers.update)
 // Eliminar producto 
-router.delete('/:id/:categoria/', productoControllers.destroy)
+router.delete('/:id', productosControllers.destroy)
 
 module.exports = router;
 

@@ -7,11 +7,6 @@ let productos = JSON.parse(
   fs.readFileSync("./src/data/productsDataBase.json", "utf-8")
 );
 
-// const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-// let newProductos = productos.map((producto) => {
-//   return producto;
-// });
-
 //* Filtro los productos por categoria
 let productosEnOferta = productos.filter((item) => item.category === "in-sale");
 let productosVisitados = productos.filter(
@@ -26,9 +21,6 @@ module.exports = {
         });
       },
     login : (req,res) =>{
-        res.render('user/login')
-    },
-    registro : (req,res) =>{
-        res.render('user/registro')
+        res.render('users/login')
     }
 };

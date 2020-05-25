@@ -1,20 +1,22 @@
 var express = require('express');
 var router = express.Router();
-const userController = require('../controllers/userController')
+const usersController = require('../controllers/usersController')
 
 // Todos los usuarios
-router.get("/", userController.index);
-// Detalle producto 
-router.get("/:id/:categoria", userController.show);
-// Vista formulario para crear producto 
-router.get('/crear', userController.create)
-// Procesar formulario para crear producto 
-router.post('/', userController.create)
-// Vista formulario para editar producto 
-router.post('/:id/:categoria/editar', userController.edit)
-// Procesar formulario para editar producto 
-router.put('/:id/:categoria/', userController.update)
-// Eliminar producto 
-router.delete('/:id/:categoria/', userController.destroy)
+router.get("/", usersController.index);
+// Vista formulario para loguear usuario
+router.get("/login", usersController.login);
+// Detalle Usuario 
+router.get('/registro', usersController.create)
+// Procesar formulario para crear usuario 
+router.get("/:id", usersController.show);
+// Vista formulario para crear usuario 
+router.post('/', usersController.store)
+// Vista formulario para editar usuario 
+router.post('/:id/editar', usersController.edit)
+// Procesar formulario para editar usuario 
+router.put('/:id', usersController.update)
+// Eliminar usuario 
+router.delete('/:id', usersController.destroy)
 
 module.exports = router;
