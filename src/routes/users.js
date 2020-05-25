@@ -14,6 +14,8 @@ router.get("/:id", usersController.show);
 router.post('/', usersController.store)
 // Vista formulario para editar usuario 
 router.post('/:id/editar', usersController.edit)
+// Procesar formulario para loguear usuario 
+router.post('/login', usersController.procesarLogin)
 // Procesar formulario para editar usuario 
 router.put('/:id', usersController.update)
 // Eliminar usuario 
