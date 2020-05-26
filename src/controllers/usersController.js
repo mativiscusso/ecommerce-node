@@ -16,7 +16,7 @@ module.exports = {
     create: (req, res) => {
         res.render("users/registro");
     },
-    store: (req, res) => {
+    store: (req, res, next) => {
         //encripto la contraseña
         let passHash = bcrypt.hashSync(req.body.pass, 10);
         //armo el objeto usuario con los datos del formulario y genero un ID random
@@ -24,13 +24,14 @@ module.exports = {
             id: generarID(),
             ...req.body,
             pass: passHash,
+            avatar : req.files[0].filename
         };
         //guardo el nuevo usuario dentro de la variable USERS que tiene todos los usuarios
         users.push(user);
         //escribo los usuarios en el archivo de base de datos
         fs.writeFileSync(pathUsersDB, JSON.stringify(users, null, " "));
         //redirijo
-        res.redirect("/");
+        res.render("users/profile", { user });
     },
     edit: (req, res) => {},
     update: (req, res) => {},

@@ -13,5 +13,23 @@
   "user": "mativiscusso",
   "pass": "$2b$10$Tx7tIrWxEL5DxtNvy51duu2t.39uhxGuBhE5T.UN/fZ7qvESFtrRu",
   "re_pass": "septiembre88"
+ },
+ {
+  "id": 4946,
+  "name": "Aldana",
+  "last_name": "Coletti",
+  "email": "aldicoletti@gmail.com",
+  "user": "aldanacoletti",
+  "pass": "$2b$10$xoiZssdkG4o0BKnyOimiXepr9F66qD1XLtz1GJNMFD8dbpQpxQoRO",
+  "avatar": "avatar-1590458839562.jpg"
+ },
+ {
+  "id": 3972,
+  "name": "Aldana",
+  "last_name": "Coletti",
+  "email": "aldicoletti@gmail.com",
+  "user": "aldanacoletti",
+  "pass": "$2b$10$DOCUDIrCEzVAnI58QoPXFu20yaTjbTq7sTHAyhoo9j4nAhbFUAABm",
+  "avatar": "avatar-1590458892432.jpg"
  }
 ]

@@ -1,0 +1,43 @@
+<%- include('../partials/header.ejs') %>
+
+<!--Body-->
+<!--Main layout-->
+<main class="mt-5 pt-4">
+	<div class="container dark-grey-text mt-5">
+		<!--Grid row-->
+		<div class="row wow fadeIn">
+			<!--Grid column-->
+			<div class="col-md-6 mb-4">
+				<img src="/img/avatars/<%= user.avatar %>" class="img-fluid" alt="">
+			</div>
+			<!--Grid column-->
+			<!--Grid column-->
+			<div class="col-md-6 mb-4">
+				<!--Content-->
+				<div class="p-4">
+					<div class="mb-3">
+					</div>
+					<p class="lead">
+						<span class="mr-1">
+						</span>
+						<span class="badge blue mr-1"></span>
+					<h2 class="font-weight-bold">
+						<%= user.name + ' ' + user.last_name %>
+					</h2>
+					</p>
+					<p class="lead font-weight-bold"><%= user.email %></p>
+					<p class="lead font-weight-bold"><%= user.user %></p>
+				</div>
+				<!--Content-->
+			</div>
+			<!--Grid column-->
+		</div>
+		<!--Grid row-->
+		<hr>
+		<!--Grid row-->
+	</div>
+</main>
+<!--Main layout-->
+<!--Body-->
+
+<%- include('../partials/footer.ejs') %>

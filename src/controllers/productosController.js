@@ -42,13 +42,14 @@ module.exports = {
   create: (req, res) => {
     res.render("admin/productos/create");
   },
-  store: (req, res) => {
+  store: (req, res, next) => {
     //guardar todos los productos en una variable
 
     //recibir los parametros del formulario
     let nuevoProducto = {
       id: generarID(),
       ...req.body,
+      image : req.files[0].filename
     };
     //guardarlos en la variable de todos los productos
     productos.push(nuevoProducto);

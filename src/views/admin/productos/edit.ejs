@@ -5,7 +5,7 @@
         <%- include('../partials/sidenav.ejs') %>
         <%- include('../partials/main.ejs', { titulo : 'Editar Producto'}) %>
         <div class="container py-3">
-            <form action="/productos/<%= producto.id %>?_method=PUT" method="post">
+            <form action="/productos/<%= producto.id %>?_method=PUT" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="">Nombre</label>
                     <input type="text" name="name" id="" class="form-control" value="<%= producto.name %> ">

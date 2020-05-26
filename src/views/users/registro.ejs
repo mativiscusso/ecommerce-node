@@ -4,7 +4,7 @@
 <main id="registrer">
     <div class="container my-5 py-5">
         <h1>Registro</h1>
-        <form action="/users" method="POST">
+        <form action="/users" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="">Nombre</label>
                 <input type="text" class="form-control" name="name" id="">
@@ -29,10 +29,10 @@
                 <label for="">Repetir contraseña</label>
                 <input type="password" class="form-control" name="" id="">
             </div>
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <label for="">Foto de perfil</label>
-                <input type="file" class="form-control" name="image" id="">
-            </div> -->
+                <input type="file" class="form-control" name="avatar" id="">
+            </div>
             <input class="btn btn-primary" type="submit" value="Registro">
         </form>
     </div>

@@ -151,5 +151,14 @@
   "discount": 10,
   "image": "sin título-9.jpg",
   "category": "visited"
+ },
+ {
+  "id": 5853,
+  "name": "Botines Adidas Predator",
+  "description": "Altos botines rojo y negro pa",
+  "price": "7000",
+  "discount": "10",
+  "category": "in-sale",
+  "image": "image-1590459071539.jpg"
  }
 ]
