@@ -11,7 +11,7 @@ const generarID = () => Math.floor(Math.random() * 9999);
 module.exports = {
     index: function (req, res) {},
     show: function (req, res) {
-        res.send("estoy en procesarlogin");
+        res.send("estoy en Perfil de usuario");
     },
     create: (req, res) => {
         res.render("users/registro");
@@ -24,7 +24,7 @@ module.exports = {
             id: generarID(),
             ...req.body,
             pass: passHash,
-            avatar : req.files[0].filename
+            avatar: req.files[0].filename,
         };
         //guardo el nuevo usuario dentro de la variable USERS que tiene todos los usuarios
         users.push(user);
@@ -40,21 +40,27 @@ module.exports = {
         res.render("users/login");
     },
     procesarLogin: (req, res) => {
-        let userEnviado = req.body.user
-        let passEnviada = req.body.pass
+        let userEnviado = req.body.user;
+        let passEnviada = req.body.pass;
         //busco el usuario en la base de datos por el atributo unico e irrepetible
         let user = users.find((u) => u.user == userEnviado);
-        console.log(userEnviado, passEnviada);
-        
+
         //si existe, hago la validacion de password
         if (user) {
-            let check = bcrypt.compareSync(passEnviada, user.pass)
-            if(check){
-                res.redirect('/')
+            let check = bcrypt.compareSync(passEnviada, user.pass);
+            if (check) {
+                delete user.pass;
+                req.session.user = user;
+                res.redirect("/");
             }
         } else {
-            res.redirect('/users/registro')
+            //si no existe lo redirijo a registracion
+            res.redirect("/users/registro");
         }
-        //si no existe lo redirijo a registracion
+    },
+    logout: (req, res) => {
+        req.session.user = null;
+        res.locals.user = null;
+        res.redirect("/");
     },
 };

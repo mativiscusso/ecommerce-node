@@ -1,35 +1,20 @@
 [
  {
-  "id": 1,
-  "user": "administrador",
-  "pass": "123456",
-  "avatar": "img_prueba.jpg"
- },
- {
-  "id": 4489,
+  "id": 4265,
   "name": "Matias",
   "last_name": "Viscusso",
   "email": "mativiscusso@gmail.com",
   "user": "mativiscusso",
-  "pass": "$2b$10$Tx7tIrWxEL5DxtNvy51duu2t.39uhxGuBhE5T.UN/fZ7qvESFtrRu",
-  "re_pass": "septiembre88"
+  "pass": "$2b$10$Ky6BTmIVL.IXUFLDLRIKJOt5BH9MuUA3STPizJlN4.2GvFsyxfwE6",
+  "avatar": "avatar-1590698184548.jpg"
  },
  {
-  "id": 4946,
-  "name": "Aldana",
-  "last_name": "Coletti",
-  "email": "aldicoletti@gmail.com",
-  "user": "aldanacoletti",
-  "pass": "$2b$10$xoiZssdkG4o0BKnyOimiXepr9F66qD1XLtz1GJNMFD8dbpQpxQoRO",
-  "avatar": "avatar-1590458839562.jpg"
- },
- {
-  "id": 3972,
-  "name": "Aldana",
-  "last_name": "Coletti",
-  "email": "aldicoletti@gmail.com",
-  "user": "aldanacoletti",
-  "pass": "$2b$10$DOCUDIrCEzVAnI58QoPXFu20yaTjbTq7sTHAyhoo9j4nAhbFUAABm",
-  "avatar": "avatar-1590458892432.jpg"
+  "id": 4938,
+  "name": "Administrador",
+  "last_name": "Administrador",
+  "email": "admin@admin.com",
+  "user": "admin",
+  "pass": "$2b$10$wugfV8/Ti5hLYPuqkudiZectvtLl8/g58tW4HWjeijHjnh/7za08i",
+  "avatar": "avatar-1590708414896.jpg"
  }
 ]
