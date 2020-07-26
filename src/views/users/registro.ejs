@@ -1,37 +1,69 @@
-<%- include('../partials/header.ejs') %>
+<%- include('../home-partials/header.ejs') %>
 
 <!--Body-->
 <main id="registrer">
     <div class="container my-5 py-5">
-        <h1>Registro</h1>
-        <form action="/users" method="POST" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="">Nombre</label>
-                <input type="text" class="form-control" name="name" id="">
-            </div>
-            <div class="form-group">
-                <label for="">Apellido</label>
-                <input type="text" class="form-control" name="last_name" id="">
+        <h1 class="mt-5 text-center">Registro</h1>
+        <form action="/users" method="POST" enctype="multipart/form-data" class="px-5">
+            <div class="row">
+                <div class="form-group col-12 col-md-6">
+                    <label for="">Nombre</label>
+                    <input type="text" class="form-control" name="firstName" id="">
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <label for="">Apellido</label>
+                    <input type="text" class="form-control" name="lastName" id="">
+                </div>
             </div>
             <div class="form-group">
                 <label for="">Email</label>
                 <input type="email" class="form-control" name="email" id="">
             </div>
-            <div class="form-group">
-                <label for="">Usuario</label>
-                <input type="text" class="form-control" name="user" id="">
+            <div class="row">
+                <div class="form-group col-12 col-md-6">
+                    <label for="">Contraseña</label>
+                    <input type="password" class="form-control" name="password" id="">
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <label for="">Repetir contraseña</label>
+                    <input type="password" class="form-control" name="" id="">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="">Contraseña</label>
-                <input type="password" class="form-control" name="pass" id="">
+            <div class="row">
+                <div class="form-group col-12 col-md-6">
+                    <label for="">Provincia</label>
+                    <select name="state" id="" class="form-control">
+                        <option value="Rosario">Santa Fe</option>
+                        <option value="buenos aires">Buenos Aires</option>
+                        <option value="cordoba">Cordoba</option>
+                    </select>
+                </div>
+                <div class="form-group col-12 col-md-6">
+                    <label for="">Ciudad</label>
+                    <select name="city" id="" class="form-control">
+                        <option value="Rosario">Rosario</option>
+                        <option value="caba">CABA</option>
+                        <option value="villa maria">Villa Maria</option>
+                    </select>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="">Repetir contraseña</label>
-                <input type="password" class="form-control" name="" id="">
+            <div class="row">
+                <div class="form-group col-12 col-md-4">
+                    <label for="">Codigo Postal</label>
+                    <input class="form-control" type="number" name="zipCode" id="">
+                </div>
+                <div class="form-group col-12 col-md-4">
+                    <label for="">Direccion de entrega</label>
+                    <input class="form-control" type="text" name="address" id="">
+                </div>
+                <div class="form-group col-12 col-md-4">
+                    <label for="">Telefono</label>
+                    <input class="form-control" type="number" name="phone">
+                </div>
             </div>
-            <div class="form-group">
+            <div class="form-group w-50">
                 <label for="">Foto de perfil</label>
-                <input type="file" class="form-control" name="avatar" id="">
+                <input type="file" class="form-control" name="image" id="">
             </div>
             <input class="btn btn-primary" type="submit" value="Registro">
         </form>
@@ -39,4 +71,4 @@
 </main>
 <!--Body-->
 
-<%- include('../partials/footer.ejs') %>
+<%- include('../home-partials/footer.ejs') %>

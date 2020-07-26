@@ -1,9 +1,7 @@
-<%- include('./partials/head.ejs')  %>
-<%- include('./partials/topnav.ejs')  %>
-<div class="container-fluid">
-    <div class="row">
-        <%- include('./partials/sidenav.ejs') %>
-        <%- include('./partials/main.ejs', { titulo : 'Panel de Administracion'}) %>
-    </div>
-</div>
-<% include('./partials/footer.ejs') %> 
+<%- include('partials/head.ejs')  %> 
+
+<%- include('partials/menu.ejs', {titulo : 'Dashboard'})  %> 
+
+<%- include('partials/main.ejs')  %> 
+
+<%- include('partials/footer.ejs')  %> 

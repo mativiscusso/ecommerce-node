@@ -1,19 +1,19 @@
 <!--Seccion: Productos-Todos-->
-<section class="text-center mb-4">
+<section class="text-center my-4">
     <h3>Productos</h3>
     <!--Grid row-->
     <div class="row wow fadeIn">
 
         <% productos.forEach((producto)=>{ %>
         <!--Grid column-->
-        <div class="col-lg-3 col-md-6 mb-4">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-4 simpleCart_shelfItem">
             <!--Card-->
 
             <div class="card">
 
                 <!--Card image-->
                 <div class="view overlay">
-                    <img src="/img/productos/<%= producto.image %>" class="card-img-top" alt="">
+                    <img src="/img/productos/<%=producto.image%>" class="card-img-top item_image" alt="">
                     <a href="/productos/<%=producto.id%>">
                         <div class="mask rgba-white-slight"></div>
                     </a>
@@ -23,28 +23,18 @@
                 <!--Card content-->
                 <div class="card-body text-center">
                     <!--Category & Title-->
-                    <a href="" class="grey-text">
-                        <h5><% producto.name %></h5>
+                    <a href="/productos/<%=producto.id%>" class=" dark-grey-text item_name"><%= producto.name %> <br>
+                        <span class="badge badge-pill danger-color"><%=producto.category.name%></span>
                     </a>
-                    <h5>
-                        <strong>
-                            <a href="/productos/<%=producto.id%>"
-                                class=" dark-grey-text"><%= producto.name %> <br>
-                                <span class="badge badge-pill danger-color"><%=producto.category%></span>
-                            </a>
-                        </strong>
-                    </h5>
-
-                    <h4 class="font-weight-bold blue-text">
-                        <strong>$<%= producto.price %></strong>
-                    </h4>
-
+                    <strong class="item_price">$<%= producto.price %></strong>
                 </div>
                 <!--Card content-->
 
             </div>
-
             <!--Card-->
+            <a class="btn btn-primary btn-md my-0 p item_add" href="javascript:;">Add to cart
+                <i class="fas fa-shopping-cart ml-1"></i>
+            </a>
         </div>
         <% });%>
 

@@ -1,0 +1,63 @@
+<%- include('../admin/partials/head.ejs')  %>
+
+<%- include('../admin/partials/menu.ejs', {titulo : 'Banners'})  %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="container py-3">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModalCenter">
+        Nuevo
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span>Agregar un nuevo banner</span>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="/banners" method="post" enctype="multipart/form-data">
+              <input type="file" name="image" id="" class="form-control">
+              <br>
+              <select name="position" id="" class="form-control">
+                <option value="top">Top</option>
+                <option value="center">Center</option>
+                <option value="top">Bottom</option>
+              </select>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary">Subir</button>
+            </div>
+          </form>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <% for (const banner of banners) { %>
+        <div class="col-12 col-md-6 py-3">
+          <h4 class="text-uppercase"><%= banner.id + ' ' + banner.position %> </h4>
+          <img src="/img/banners/<%=banner.image%>" alt="" class="rounded w-75 py-2">
+          <form action="/banners/<%= banner.id %>?_method=PUT " method="post" enctype="multipart/form-data">
+            <button type="submit" class="btn btn-success my-1">Editar</button>
+            <input type="file" class="form-controll" name="image"><br>
+            <input type="hidden" class="form-controll" name="oldImage" value="<%= banner.image %> "><br>
+          </form>
+          <form action="/banners/<%= banner.id %>?_method=DELETE" method="post" enctype="multipart/form-data">
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+          </form>
+        </div>
+
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../admin/partials/footer.ejs') %>

@@ -1,0 +1,25 @@
+header {
+    width: 100%;
+    padding-top: 5rem;
+}
+
+
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    header {
+        height: 80vh;
+        padding-top: 4rem;
+    }
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
+}

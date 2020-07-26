@@ -1,13 +1,15 @@
-<%- include('./partials/header.ejs') %>
+<%- include('./home-partials/header.ejs') %>
 
-<!--Body-->
-<%- include('./partials/carousel-home.ejs')  %>
-<main id="index">
-  <div class="container py-5">
-    <%- include('./productos/partials/productos-visitados.ejs')  %>
-    <%- include('./productos/partials/productos-oferta.ejs')  %>
-  </div>
-</main>
-<!--Body-->
+<%- include('./home-partials/banners-top.ejs')  %>
 
-<%- include('./partials/footer.ejs') %>
+<%- include('./home-partials/info-home.ejs')  %>
+
+<%- include('./productos/partials/productos-home.ejs')  %>
+
+<%- include('./home-partials/banners-center.ejs')  %>
+
+<%- include('./productos/partials/productos-home.ejs')  %>
+
+<%- include('./home-partials/banners-bottom.ejs')  %>
+
+<%- include('./home-partials/footer.ejs') %>

@@ -1,8 +1,8 @@
-<%- include('../partials/header.ejs') %>
+<%- include('../home-partials/header.ejs') %>
 
 <!--Main layout-->
 <main class="mt-5 pt-4">
-   <div class="container dark-grey-text mt-5">
+   <div class="container dark-grey-text mt-5 simpleCart_shelfItem">
 
       <!--Grid row-->
       <div class="row wow fadeIn">
@@ -10,7 +10,7 @@
          <!--Grid column-->
          <div class="col-md-6 mb-4">
 
-            <img src="/img/productos/<%= detalleProducto.image %>" class="img-fluid" alt="">
+            <img class="img-fluid item_image" src="/img/productos/<%= detalleProducto.image %>" alt=""/>
 
          </div>
          <!--Grid column-->
@@ -20,41 +20,33 @@
 
             <!--Content-->
             <div class="p-4">
-
                <div class="mb-3">
                   <a href="">
-                     <span class="badge purple mr-1"><%=detalleProducto.category%>></span>
-                  </a>
-                  <a href="">
-
-                  </a>
-                  <a href="">
-                     <span class="badge red mr-1">Bestseller</span>
+                     <span class="badge purple mr-1"><%=detalleProducto.category.name%></span>
                   </a>
                </div>
 
                <p class="lead">
                   <span class="mr-1">
-                     <del>$<%= detalleProducto.price %></del>
+                     <del class="item_price">$<%= detalleProducto.price %></del>
                   </span>
                   <span class="badge blue mr-1">%<%= detalleProducto.discount %></span>
                <h2 class="font-weight-bold">
                   $<%= (detalleProducto.price*(1-(detalleProducto.discount/100))).toLocaleString("es") %>
                </h2>
                </p>
-
+               
+               <h5 class="my-4 h5 item_name"><%= detalleProducto.name %></h5>
+               
                <p class="lead font-weight-bold">Descripcion</p>
-
                <p><%= detalleProducto.description %></p>
 
-               <form class="d-flex justify-content-left">
                   <!-- Default input -->
-                  <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
-                  <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
+                  <input class="item_Quantity" type="number" min="1" max="10" value="1" />
+                  <a class="btn btn-primary btn-md my-0 p item_add" href="javascript:;">Add to cart
                      <i class="fas fa-shopping-cart ml-1"></i>
-                  </button>
+                  </a>
 
-               </form>
 
             </div>
             <!--Content-->
@@ -122,4 +114,4 @@
 </main>
 <!--Main layout-->
 
-<%- include('../partials/footer.ejs') %>
+<%- include('../home-partials/footer.ejs') %>

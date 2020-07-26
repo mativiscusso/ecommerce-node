@@ -1,0 +1,12 @@
+    <!-- Sidebar -->
+    <div class="bg-transparent border-right" id="sidebar-wrapper">
+        <h4 class="text-center py-2">Categorias</h4>
+        <div class="list-group list-group-flush">
+            <% for(const categoria of categorias) { %>
+                    <a class="nav-link text-dark" href="/productos/categoria/<%= categoria.id %>">
+                        <%= categoria.name %> 
+                    </a>
+                <% } %>
+        </div>
+      </div>
+      <!-- /#sidebar-wrapper -->

@@ -1,66 +1,91 @@
+const db = require("../database/models");
+const { Op } = db.Sequelize;
 const bcrypt = require("bcrypt");
-const fs = require("fs");
-const path = require("path");
-const pathUsersDB = path.resolve("src", "data", "usersDataBase.json");
-
-let users = JSON.parse(fs.readFileSync(pathUsersDB, "utf-8"));
-
-//* Generar ID
-const generarID = () => Math.floor(Math.random() * 9999);
 
 module.exports = {
-    index: function (req, res) {},
-    show: function (req, res) {
-        res.send("estoy en Perfil de usuario");
+    index: async (req, res) => {
+        let users = await db.User.findAll();
+        return res.render("users/", { users });
+    },
+    show: async (req, res) => {
+        const user = await db.User.findByPk(req.params.id);
+        return res.render("users/profile", { user });
     },
     create: (req, res) => {
         res.render("users/registro");
     },
     store: (req, res, next) => {
+        const _body = req.body;
+        // verifico si viene imagen y la asigno al body
+        _body.image = req.file ? req.file.filename : "";
+
         //encripto la contraseña
-        let passHash = bcrypt.hashSync(req.body.pass, 10);
-        //armo el objeto usuario con los datos del formulario y genero un ID random
+        let passHash = bcrypt.hashSync(_body.password, 10);
+        _body.password = passHash;
+
+        //armo el objeto usuario con los datos del formulario
         let user = {
-            id: generarID(),
-            ...req.body,
-            pass: passHash,
-            avatar: req.files[0].filename,
+            ..._body,
         };
+
         //guardo el nuevo usuario dentro de la variable USERS que tiene todos los usuarios
-        users.push(user);
-        //escribo los usuarios en el archivo de base de datos
-        fs.writeFileSync(pathUsersDB, JSON.stringify(users, null, " "));
-        //redirijo
-        res.render("users/profile", { user });
+        db.User.create(user)
+            .then((user) => {
+                //redirijo
+                return res.render("users/profile", { user });
+            })
+            .catch((err) => res.send(err));
     },
-    edit: (req, res) => {},
-    update: (req, res) => {},
-    destroy: (req, res) => {},
-    login: (req, res) => {
-        res.render("users/login");
+    edit: async (req, res) => {
+        const user = await db.User.findByPk(req.params.id);
+        return res.render("users/edit", { user });
+    },
+    update: (req, res) => {
+        const user = req.body;
+
+        user.image = req.file ? req.file.filename : req.body.oldAvatar;
+
+        db.User.update(user, {
+            where: { id: req.params.id },
+        })
+            .then((result) => {
+                return res.redirect(`/users/${req.params.id}`);
+            })
+            .catch((error) => res.send(error));
+    },
+    destroy: async (req, res) => {
+        await db.User.destroy({ where: { id: req.params.id } });
+        res.redirect(`/users`);
     },
     procesarLogin: (req, res) => {
-        let userEnviado = req.body.user;
-        let passEnviada = req.body.pass;
         //busco el usuario en la base de datos por el atributo unico e irrepetible
-        let user = users.find((u) => u.user == userEnviado);
-
-        //si existe, hago la validacion de password
-        if (user) {
-            let check = bcrypt.compareSync(passEnviada, user.pass);
-            if (check) {
-                delete user.pass;
-                req.session.user = user;
-                res.redirect("/");
+        db.User.findOne({ where: { email: req.body.user } }).then(
+            async (user) => {
+                if (!user) {
+                    res.redirect("/login");
+                } else if (
+                    !(await bcrypt.compareSync(
+                        req.body.password,
+                        user.password
+                    ))
+                ) {
+                    res.redirect("/login");
+                } else {
+                    req.session.user = user.dataValues;
+                    // Recordamos al usuario por 3 meses => msegs  segs  mins  hs   días
+                    res.cookie("usuario", user.dataValues, {
+                        maxAge: 1000 * 60 * 60 * 24 * 90,
+                    });
+                    res.redirect("/");
+                }
             }
-        } else {
-            //si no existe lo redirijo a registracion
-            res.redirect("/users/registro");
-        }
+        );
     },
     logout: (req, res) => {
-        req.session.user = null;
-        res.locals.user = null;
+        // Destruimos la sesión
+        req.session.destroy();
+        // Destruimos la cookie de recordar
+        res.cookie("usuario", null, { maxAge: -1 });
         res.redirect("/");
     },
 };

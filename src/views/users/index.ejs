@@ -1,0 +1,49 @@
+<%- include('../admin/partials/head.ejs')  %>
+
+<%- include('../admin/partials/menu.ejs', {titulo : 'Usuarios'})  %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="container py-3">
+      <!-- DataTales Example -->
+      <div class="card shadow mb-4">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Pais</th>
+                  <th>Provincia</th>
+                  <th>Ciudad</th>
+                  <th>Genero</th>
+                  <th>Telefono</th>
+                  <th>Direccion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(const user of users) { %>
+                <tr>
+                  <td><%= user.id %></td>
+                  <td><%= user.firstName %></td>
+                  <td><%= user.lastName %></td>
+                  <td><%= user.country %></td>
+                  <td><%= user.state %></td>
+                  <td><%= user.city %></td>
+                  <td><%= user.gender %></td>
+                  <td><%= user.phone %></td>
+                  <td><%= user.address %></td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../admin/partials/footer.ejs') %>

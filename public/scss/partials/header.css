@@ -1,0 +1,12 @@
+header {
+  width: 100%;
+  padding-top: 5rem;
+}
+
+@media (min-width: 992px) {
+  header {
+    height: 80vh;
+    padding-top: 4rem;
+  }
+}
+/*# sourceMappingURL=header.css.map */

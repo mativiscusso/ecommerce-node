@@ -1,0 +1,25 @@
+<%- include('../home-partials/header.ejs') %>
+
+<!--Body-->
+<main id="index">
+    <div class="container-fluid py-5">
+        <div class="pt-5">
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <div class="d-block d-md-none">
+                        <%- include('./partials/productos-navbar-mobile.ejs')  %>
+                    </div>
+                    <div class="d-none d-md-block my-5">
+                        <%- include('./partials/productos-navbar-desktop.ejs')  %>
+                    </div>
+                </div>
+                <div class="col-12 col-md-9">
+                    <%- include('./partials/productos-filtrados.ejs')  %>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!--Body-->
+
+<%- include('../home-partials/footer.ejs') %>

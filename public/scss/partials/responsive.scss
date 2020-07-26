@@ -1,0 +1,32 @@
+// Your custom styles
+
+/* Required height of parents of the Half Page Carousel for proper displaying carousel itself */
+html,
+body,
+.view {
+  height: 100%;
+}
+.card {
+  box-shadow: none;
+}
+
+/* Half Page Carousel itself*/
+.carousel {
+  height: 60vh;
+}
+.carousel .carousel-inner {
+  height: 100%;
+}
+.carousel .carousel-inner .carousel-item,
+.carousel .carousel-inner .active {
+  height: 100%;
+}
+
+/* Adjustment for mobile devices*/
+@media (min-width: 776px) {
+
+}
+/* Adjustment for mobile devices*/
+@media (min-width: 998px) {
+
+}

@@ -1,0 +1,32 @@
+<%- include('../admin/partials/head.ejs')  %>
+
+<%- include('../admin/partials/menu.ejs', {titulo : 'Detalle Pedido'})  %>
+
+<div class="container-fluid">
+   <div class="row">
+      <div class="container py-3 px-3">
+        <ul>
+            <li><%= order.usuario.firstName %> </li>
+            <li><%= order.usuario.lastName %> </li>
+            <li><%= order.usuario.email %> </li>
+            <li><%= order.usuario.state %> </li>
+            <li><%= order.usuario.city %> </li>
+            <li><%= order.usuario.zipCode %> </li>
+            <li><%= order.usuario.phone %> </li>
+            <li><%= order.usuario.address %> </li>
+            <li><%= order.shipping %> </li>
+            <li><%= order.payment %> </li>
+            <li><%= order.createdAt %> </li>
+            <ul>
+            <% for(const item of items) { %> 
+                <li><%= item.item %> </li>
+                <li><%= item.quantity %> </li>
+                <li><%= item.price %> </li>
+            <% } %>
+        </ul> 
+        </ul>
+      </div>
+   </div>
+</div>
+
+<%- include('../admin/partials/footer.ejs') %>

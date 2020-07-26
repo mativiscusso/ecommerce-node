@@ -1,18 +1,51 @@
-<%- include('../partials/header.ejs') %>
+<%- include('../home-partials/header.ejs') %>
 
 <!--Body-->
 <main id="login">
 	<div class="container my-5 py-5">
-		<h1>Login</h1>
-		<form action="/users/login" method="post" class="d-flex flex-column">
-			<label for="user">USUARIO</label>
-			<input type="text" name="user">
-			<label for="usuario">CONTRASEÑA</label>
-			<input type="password" name="pass">
-			<input type="submit" value="Login" class="btn btn-primary">
+
+		<!-- Default form login -->
+		<form class="text-center border border-light p-5" action="/users/login" method="post">
+			<p class="h4 mb-4">Login</p>
+
+			<!-- Email -->
+			<input type="text" name="user" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="Usuario">
+
+			<!-- Password -->
+			<input type="password" name="password" id="defaultLoginFormPassword" class="form-control mb-4"
+				placeholder="Contraseña">
+
+				<input type="checkbox" name="remember" id="">
+				<label for="remember">Recordarme</label>
+
+			<div class="d-flex justify-content-around">
+
+				<div>
+					<!-- Forgot password -->
+					<a href="">Forgot password?</a>
+				</div>
+			</div>
+
+			<!-- Sign in button -->
+			<button class="btn btn-info btn-block my-4" type="submit">Submit</button>
+
+			<!-- Register -->
+			<p>¿No sos usuario?
+				<a href="/users/registro">Registro</a>
+			</p>
+
+			<!-- Social login -->
+			<!-- <p>or sign in with:</p>
+
+			<a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+			<a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+			<a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+			<a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a> -->
+
 		</form>
+		<!-- Default form login -->
 	</div>
 </main>
 <!--Body-->
 
-<%- include('../partials/footer.ejs') %>
+<%- include('../home-partials/footer.ejs') %>

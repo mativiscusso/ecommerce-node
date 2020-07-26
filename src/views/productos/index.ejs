@@ -1,14 +1,29 @@
-<%- include('../partials/header.ejs') %>
+<%- include('../home-partials/header.ejs') %>
 
 <!--Body-->
 <main id="index">
-    <div class="container py-5">
-        <div class="py-3">
-            <%- include('./partials/productos-navbar.ejs')  %>
+    <div class="container-fluid py-5">
+        <div class="pt-5">
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <div class="d-block d-md-none">
+                        <%- include('./partials/productos-navbar-mobile.ejs')  %>
+                    </div>
+                    <div class="d-none d-md-block my-5">
+                        <%- include('./partials/productos-navbar-desktop.ejs')  %>
+                    </div>
+                </div>
+                <div class="col-12 col-md-9">
+                    <% if(typeof productos != 'undefined') { %>
+                    <%- include('./partials/productos-todos.ejs')  %>
+                    <% } else { %>
+                    <%- include('./partials/productos-buscados.ejs')  %>
+                    <% } %>
+                </div>
+            </div>
         </div>
-        <%- include('./partials/productos-todos.ejs')  %>
     </div>
 </main>
 <!--Body-->
 
-<%- include('../partials/footer.ejs') %>
+<%- include('../home-partials/footer.ejs') %>

@@ -1,0 +1,45 @@
+<%- include('../admin/partials/head.ejs')  %>
+
+<%- include('../admin/partials/menu.ejs', {titulo : 'Categorias'})  %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="container py-3">
+      <!-- DataTales Example -->
+      <div class="card shadow mb-4">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Id</th>
+                  <th>Nombre</th>
+                  <th>Filtros</th>
+                  <th class="border-0"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(const categoria of categorias) { %>
+                <tr>
+                  <td><%= categoria.id %></td>
+                  <td><%= categoria.name %></td>
+                  <td>Filtros</td>
+                  <td class="d-flex">
+                    <a href="/categorias/<%= categoria.id %>/editar"><i class="fas fa-edit"></i></a>
+                    <form action="/categorias/<%= categoria.id %>?_method=DELETE" method="post">
+                    <button type="submit" class="bg-transparent border-0 text-danger">
+                      <i class="far fa-trash-alt"></i>
+                    </button>
+                  </form>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../admin/partials/footer.ejs') %>

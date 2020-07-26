@@ -1,4 +1,4 @@
-<%- include('../partials/header.ejs') %>
+<%- include('../home-partials/header.ejs') %>
 
 <!--Body-->
 <!--Main layout-->
@@ -8,7 +8,7 @@
 		<div class="row wow fadeIn">
 			<!--Grid column-->
 			<div class="col-md-6 mb-4">
-				<img src="/img/avatars/<%= user.avatar %>" class="img-fluid" alt="">
+				<img src="/img/avatars/<%= user.image %>" class="img-fluid" alt="">
 			</div>
 			<!--Grid column-->
 			<!--Grid column-->
@@ -22,11 +22,10 @@
 						</span>
 						<span class="badge blue mr-1"></span>
 					<h2 class="font-weight-bold">
-						<%= user.name + ' ' + user.last_name %>
+						<%= user.firstName + ' ' + user.lastName %>
 					</h2>
 					</p>
 					<p class="lead font-weight-bold"><%= user.email %></p>
-					<p class="lead font-weight-bold"><%= user.user %></p>
 				</div>
 				<!--Content-->
 			</div>
@@ -40,4 +39,4 @@
 <!--Main layout-->
 <!--Body-->
 
-<%- include('../partials/footer.ejs') %>
+<%- include('../home-partials/footer.ejs') %>

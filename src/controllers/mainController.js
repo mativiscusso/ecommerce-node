@@ -1,26 +1,31 @@
-const fs = require("fs");
-const path = require('path')
-let archivoJson = path.join(__dirname, )
-
-//* Traigo los productos del JSON
-let productos = JSON.parse(
-  fs.readFileSync("./src/data/productsDataBase.json", "utf-8")
-);
-
-//* Filtro los productos por categoria
-let productosEnOferta = productos.filter((item) => item.category === "in-sale");
-let productosVisitados = productos.filter(
-  (item) => item.category === "visited"
-);
+const { Product, Banner } = require("../database/models");
 
 module.exports = {
-    home: (req, res, next) => {
+    home: async (req, res, next) => {
+        const productosHome = await Product.findAll({});
+
+      
+        const bannersTop = await Banner.findAll({ where: { position : 'top' } });
+        const bannersCenter = await Banner.findAll({ where: { position : 'center' } });
+        const bannersBottom = await Banner.findAll({ where: { position : 'bottom' } });
+
         res.render("index", {
-          productosEnOferta,
-          productosVisitados,
+            productosHome,
+            bannersTop,
+            bannersCenter,
+            bannersBottom
         });
-      },
-    login : (req,res) =>{
-        res.render('users/login')
-    }
+    },
+    login: (req, res) => {
+        res.render("users/login");
+    },
+    admin: (req, res) => {
+        res.render("admin/index");
+    },
+    checkout: (req, res) => {
+        res.render("checkout");
+    },
+    cart: (req, res) => {
+        res.render("cart/index");
+    },
 };

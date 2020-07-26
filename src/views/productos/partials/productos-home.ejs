@@ -1,0 +1,55 @@
+<!-- Modulo Productros Index  -->
+<div class="container py-5">
+    <h4>Modulo Producto Index</h4>
+    <section class="text-center mb-4">
+
+        <!--Grid row-->
+        <div id="my-keen-slider" class="keen-slider">
+            <!--Grid column-->
+            <% productosHome.forEach((producto)=>{ %>
+            <div class="keen-slider__slide simpleCart_shelfItem">
+                <!--Card-->
+                <div class="card">
+
+                    <!--Card image-->
+                    <div class="view overlay">
+                        <img src="/img/productos/<%= producto.image %>" class="card-img-top item_image" alt="">
+                        <a href="/productos/<%=producto.id%>">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <!--Card image-->
+
+                    <!--Card content-->
+                    <div class="card-body text-center">
+                        <!--Category & Title-->
+                        <a href="" class="grey-text">
+                            <h5 class="item_name"><% producto.name %></h5>
+                        </a>
+                        <h5>
+                            <strong>
+                                <a href="/productos/<%=producto.id%>"
+                                    class=" dark-grey-text item_name"><%= producto.name %>
+                                </a>
+                            </strong>
+                        </h5>
+
+                            <strong class="item_price">$<%= producto.price %></strong>
+
+                    </div>
+                    <!--Card content-->
+                    <a class="btn btn-primary btn-md my-0 p item_add" href="javascript:;">Add to cart
+                        <i class="fas fa-shopping-cart ml-1"></i>
+                    </a>
+                </div>
+             <!--Card-->
+            </div>
+            <% });%>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+
+    </section>
+</div>
+
+<!-- Modulo Productos  -->
