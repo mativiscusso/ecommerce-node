@@ -118,6 +118,10 @@ header {
   }
 }
 
+.form-login {
+  width: 350px;
+}
+
 .keen-slider {
   display: -webkit-box;
   display: -ms-flexbox;

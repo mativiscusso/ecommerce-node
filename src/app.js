@@ -7,11 +7,14 @@ var session = require("express-session");
 var logger = require("morgan");
 var auth = require("./middlewares/auth");
 
+
+
 var app = express();
 
 // Configuracion motor de vista EJS
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+
 
 // Seguridad del sistema & Middlewares
 app.use(logger("dev"));

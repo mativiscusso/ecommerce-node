@@ -11,6 +11,9 @@ router.get('/', ordersController.list)
 /* POST /ordenes page. */
 router.post("/checkout", ordersController.checkout);
 
+/* POST /procesar-pago page. */
+router.post("/procesar-pago", ordersController.payment);
+
 // Detalle orden
 router.get("/:id", ordersController.show);
 
