@@ -15,17 +15,16 @@
 
             <!--Card-->
             <div class="card">
-                <a href="<%= init_point %>" target="_blank">Pagar</a>
+               <a href="<%= init_point %>" target="_blank">Pagar</a>
 
             </div>
             <form action="/procesar-pago" method="POST">
-                <script
-                 src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-                 data-preference-id="<%= init_point %>">
-                </script>
-              </form>
+               <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+                  data-preference-id="<%= init_point %>">
+                  </script>
+            </form>
             <!--/.Card-->
-
+            <iframe src="<%= init_point %>" frameborder="0"></iframe>
          </div>
          <!--Grid column-->
 
