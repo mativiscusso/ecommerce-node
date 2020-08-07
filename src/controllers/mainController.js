@@ -33,9 +33,6 @@ module.exports = {
     login: (req, res) => {
         res.render("users/login");
     },
-    admin: (req, res) => {
-        res.render("admin/index");
-    },
     checkout: (req, res) => {
         let itemsCompra = req.session.itemsCompra
 

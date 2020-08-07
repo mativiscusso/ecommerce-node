@@ -12,9 +12,6 @@ router.get("/", mainControllers.home);
 /* LOGIN page. */
 router.get("/login", guestRoute, mainControllers.login);
 
-/* LOGIN page. */
-router.get("/admin", adminRoute, mainControllers.admin);
-
 /* GET Checkout page. */
 router.get("/checkout", mainControllers.checkout);
 

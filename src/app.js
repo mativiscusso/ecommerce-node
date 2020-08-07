@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
   session({
-    secret: "lorem impsum",
+    secret: "expecto patronum",
     resave: false,
     saveUninitialized: true,
   })
@@ -39,12 +39,14 @@ let productsRouter = require("./routes/products");
 let ordersRouter = require("./routes/orders");
 let categoriesRouter = require("./routes/categories");
 let bannersRouter = require("./routes/banners");
+let adminRouter = require("./routes/admin");
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/productos", productsRouter);
 app.use("/categorias", categoriesRouter);
 app.use("/orders", ordersRouter);
 app.use("/banners", bannersRouter);
+app.use("/admin", adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

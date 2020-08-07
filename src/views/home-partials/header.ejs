@@ -102,9 +102,6 @@
                                     <%= locals.user.firstName %>
                                 </strong>
                                 <div class="dropdown-menu mr-2" aria-labelledby="dropdownMenuButton">
-                                    <% if(locals.user.isAdmin) { %>
-                                    <a class="dropdown-item" href="/admin">Panel Admin</a>
-                                    <% } %>
                                     <a class="dropdown-item" href="/users/<%=locals.user.id%>">Perfil</a>
                                     <a class="dropdown-item" href="/users/logout">Cerrar Sesion</a>
                                 </div>
